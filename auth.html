@@ -1,14 +1,20 @@
 <form id="signupForm">
-    <input type="email" placeholder="Email" id="email" required>
-    <input type="password" placeholder="Password" id="password" required>
+    <input type="email" placeholder="Email" id="emailSignup" required>
+    <input type="password" placeholder="Password" id="passwordSignup" required>
     <button type="submit">Sign Up</button>
+</form>
+
+<form id="loginForm">
+    <input type="email" placeholder="Email" id="emailLogin" required>
+    <input type="password" placeholder="Password" id="passwordLogin" required>
+    <button type="submit">Login</button>
 </form>
 
 <script>
 document.getElementById("signupForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById("emailSignup").value;
+    const password = document.getElementById("passwordSignup").value;
 
     const response = await fetch("http://localhost:4000/signup", {
         method: "POST",
@@ -19,4 +25,21 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
     const data = await response.json();
     alert(data.message);
 });
+
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("emailLogin").value;
+    const password = document.getElementById("passwordLogin").value;
+
+    const response = await fetch("http://localhost:4000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+    });
+
+    const data = await response.json();
+    alert(data.message);
+    if (data.token) localStorage.setItem("authToken", data.token);
+});
 </script>
+

@@ -1,0 +1,34 @@
+<form id="orderForm">
+    <input type="text" placeholder="Your Email" id="userEmail" required>
+    <label>
+        Whiskey: <input type="number" id="whiskeyQty" min="0">
+    </label>
+    <label>
+        Beer: <input type="number" id="beerQty" min="0">
+    </label>
+    <label>
+        Vodka: <input type="number" id="vodkaQty" min="0">
+    </label>
+    <button type="submit">Place Order</button>
+</form>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const userEmail = document.getElementById("userEmail").value;
+    const drinks = [
+        { name: "Whiskey", quantity: parseInt(document.getElementById("whiskeyQty").value) || 0, price: 500 },
+        { name: "Beer", quantity: parseInt(document.getElementById("beerQty").value) || 0, price: 200 },
+        { name: "Vodka", quantity: parseInt(document.getElementById("vodkaQty").value) || 0, price: 600 }
+    ].filter(drink => drink.quantity > 0);
+
+    const response = await fetch("http://localhost:4000/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userEmail, drinks })
+    });
+
+    const data = await response.json();
+    alert(`Order placed! Order ID: ${data.orderId}`);
+});
+</script>
