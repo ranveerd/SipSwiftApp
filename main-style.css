@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -26,3 +27,33 @@ ul {
     list-style-type: none;
     padding: 0;
 }
+=======
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+section {
+    padding: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+>>>>>>> 2ed378d472804bd19fbe1ac8bcabb8667a8ceb10

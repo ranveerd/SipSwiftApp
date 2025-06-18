@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "siteName": "SipSwift",
     "port": 4000,
@@ -7,3 +8,14 @@
     },
     "paymentMethods": ["UPI", "Paytm", "Stripe"]
 }
+=======
+{
+    "siteName": "SipSwift",
+    "port": 4000,
+    "database": {
+        "type": "mongoDB",
+        "uri": "mongodb://localhost:27017/sipswift"
+    },
+    "paymentMethods": ["UPI", "Paytm", "Stripe"]
+}
+>>>>>>> 2ed378d472804bd19fbe1ac8bcabb8667a8ceb10
