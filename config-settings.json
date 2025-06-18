@@ -1,0 +1,9 @@
+{
+    "siteName": "SipSwift",
+    "port": 4000,
+    "database": {
+        "type": "mongoDB",
+        "uri": "mongodb://localhost:27017/sipswift"
+    },
+    "paymentMethods": ["UPI", "Paytm", "Stripe"]
+}
